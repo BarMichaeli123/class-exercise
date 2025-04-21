@@ -4,27 +4,47 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Basics Practice</title>
+    
     <!-- חלק א' - כפתורי רדיו לשינוי כיוון הכותרת -->
     <script>
       function changeLeft() {
         console.log("changeLeft");
+       // console.log(document.getElementById("header").innerHTML);
+       document.getElementById("header").style.textAlign="left";
       }
 
       function changeRight() {
         console.log("changeRight");
+        document.getElementById("header").style.textAlign="right";
       }
     </script>
     <!-- חלק ב' - העברת טקסט מתיבה לכפתור -->
     <script>
       function changeTxt() {
         console.log("changeTxt function called");
+        let x=document.getElementById("txt").value;
+        // console.log("thus is the text: ",x);
+        document.getElementById("btn").value=x;
+        document.getElementById("txt").value="";
       }
     </script>
   </head>
   <body>
     <div id="container">
-      <div id="first"><!-- חלק א' - כפתורי רדיו לשינוי כיוון הכותרת  --></div>
-      <div id="second"><!-- חלק ב' - העברת טקסט מתיבה לכפתור  --></div>
+      <!-- חלק א' - כפתורי רדיו לשינוי כיוון הכותרת  -->
+      <div id="first">
+        <h1 id="header">ברוכים הבאים</h1>
+        <input type="radio" name="group1" onclick="changeRight()"/> <label>ימין</label>
+        <br/>
+        <input type="radio" checked name="group1" onclick="changeLeft()"/> <label>שמאל</label>
+      </div>
+      
+      <!-- חלק ב' - העברת טקסט מתיבה לכפתור  -->
+      <div id="second">
+       <input type="text" id="txt"/>
+       <br/>
+       <input type="button" value="button" id="btn" onclick="changeTxt()"/>
+      </div>
     </div>
   </body>
 </html>
